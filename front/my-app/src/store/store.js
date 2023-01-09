@@ -1,7 +1,7 @@
 import { combineReducers, legacy_createStore as createStore } from 'redux'
 
 
-const middleware = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()
+const middleware = (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__(): undefined
 
 
 const rootReducer = combineReducers({
