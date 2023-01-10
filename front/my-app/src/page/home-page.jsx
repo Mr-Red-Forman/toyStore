@@ -1,11 +1,13 @@
-// import { useEffect } from "react"
-// import { useDispatch, useSelector } from "react-redux"
-
 
 export function HomePage(){
+
+    const imgUrl = 'welcom_page.jpg'
     return(
-        <section>
-            show home page
+        <section className="homePage main-layout flex justify-center align-center flex-column">
+            <h1>welcome home</h1>
+            <h2> Your favorite toys are here</h2>
+
+            <img src={require(`../assets/img/${imgUrl}`)} alt="grampa" />
         </section>
 
     )
