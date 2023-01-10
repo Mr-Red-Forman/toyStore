@@ -15,8 +15,6 @@ export function ToyEdit() {
 
     const labels = ["On wheels", "Box game", "Art", "Baby", "Doll", "Puzzle", "Outdoor", "Battery Powered"]
 
-    console.log('toyToEdit:',toyToEdit )
-
 
     useEffect(() => {
         if (!toyId) return

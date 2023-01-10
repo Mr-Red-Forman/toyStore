@@ -29,26 +29,20 @@ function query(filterBy = getDefaultFilter(), sortBy) {
                 toys = toys.filter(toy => toy.price <= filterBy.maxPrice)
             }
 
-
-            if (filterBy.labels !== undefined) {
-                if (filterBy.labels.length > 0) {
-                    // toys = toys.filter(toys => {
-                    //     return toys.labels.filter(l => {
-                    //         // console.log('l:', l)
-                    //         // console.log('filterBy.labels.includes(l):', filterBy.label.includes(l))
-                    //         return filterBy.labels.includes(l)
-                    //     })
-                    // })
+            // if (filterBy.labels) {
+                if (filterBy.labels?.length > 0) {
+                    toys = toys.filter(toys => {
+                        return toys.labels.some(r=> filterBy.labels.indexOf(r) >= 0)
+                        })
+                    
                 }
-            }
-
-            if (sortBy.by){
-                if (typeof(sortBy.by)==='string'){
-                    console.log('sortBy.by:',sortBy.by )
-                    let show=toys.sort((b1, b2) => b1.toy.localeCompare(b2.toy) * sortBy.descending)
-                    console.log('toys:', show)
+            // }
+            if (sortBy.by && toys.length>0){
+                if (typeof(toys[0][sortBy.by])==='string'){
+                    // console.log('string:')
+                    toys=toys.sort((b1, b2) => b1[sortBy.by.toLowerCase()].localeCompare(b2[sortBy.by.toLowerCase()]) * sortBy.descending)
                 }else{
-                    toys.sort((b1, b2) => (b1[sortBy.by] - b2[sortBy.by]) * sortBy.descending)
+                    toys=toys.sort((b1, b2) => (b1[sortBy.by] - b2[sortBy.by]) * sortBy.descending)
                 }
             }
 

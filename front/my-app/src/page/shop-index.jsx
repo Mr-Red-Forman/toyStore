@@ -12,6 +12,7 @@ import { toyService } from '../services/toyService'
 
 import { ToyFilter } from '../cmps/toys-filter'
 import { ToyList } from '../cmps/toy-list'
+import { SortBy } from '../cmps/sortBy'
 
 
 export function ToyIndex() {
@@ -73,16 +74,20 @@ export function ToyIndex() {
     function onSetFilter(filterBy) {
         store.dispatch({ type: CURRENT_FILTERBY, filterBy })
     }
-    function onSetFilter(sortBy) {
+    function onSetSort(sortBy) {
         store.dispatch({ type: CURRENT_SORTBY, sortBy })
     }
 
-    console.log('sort:', sort)
+    // console.log('sort:', sort)
 
     return (
         // <h1>shopindex</h1>
         <main>
             <ToyFilter onSetFilter={onSetFilter} />
+            <SortBy 
+            sort={sort}
+            onSetSort={onSetSort}
+            />
             <button onClick={onAddToy}>Add random toy</button>
 
 

@@ -20,7 +20,7 @@ const initialState = {
         labels:[]
     },
     sortBy:{
-        by:'Toy',
+        by:'toy',
         descending:1
     }
 }
