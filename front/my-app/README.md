@@ -1,1 +1,3 @@
-Pixel Perfect Project 
+My store 
+
+React Project Frontend and Backend 
